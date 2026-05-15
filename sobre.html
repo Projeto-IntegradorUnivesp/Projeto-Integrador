@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convenience - Seu Mercado a Custo ZERO</title>
+    <meta name="description" content="Informações sobre a implantação de minimercados autônomos em condomínios. Saiba como funciona e as vantagens.">
+    <meta name="keywords" content="minimercado autônomo, condomínio, conveniência, franquia, pagamento eletrônico, acessibilidade">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-y: auto;
+            font-size: 18px; /* Aumentando o tamanho da fonte base */
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 40px 0; /* Aumentei o padding */
+            background-color: #ff0; /* Tom de amarelo com melhor contraste */
+            color: #333;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        section {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 700px; /* Aumentei a largura máxima para melhor leitura com fonte maior */
+            width: 100%;
+            margin-bottom: 30px; /* Aumentei a margem inferior */
+            text-align: left;
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+        }
+
+        h1 {
+            font-size: 2.5em; /* Aumentei o tamanho da fonte do h1 */
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 2.0em; /* Aumentei o tamanho da fonte do h2 */
+            color: #000;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.8em; /* Aumentei o tamanho da fonte do h3 */
+            color: #000;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #333;
+            font-size: 1.4em; /* Aumentei o tamanho da fonte da legenda */
+            margin-bottom: 25px;
+        }
+
+        .question {
+            font-weight: bold;
+            font-size: 1.6em; /* Aumentei o tamanho da fonte da pergunta */
+            color: #28a745;
+            margin-bottom: 12px;
+        }
+
+        .answer {
+            color: #555;
+            font-size: 1.15em; /* Aumentei o tamanho da fonte da resposta */
+            margin-bottom: 25px;
+            line-height: 1.7; /* Aumentei a altura da linha */
+        }
+
+        .how-it-works {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .question-mark {
+            font-size: 2.5em; /* Aumentei o tamanho do ponto de interrogação */
+            color: #dc3545;
+            margin-right: 20px;
+            line-height: 1;
+            aria-label="Ícone de ponto de interrogação.";
+        }
+
+        .explanation {
+            color: #555;
+            font-size: 1.15em; /* Aumentei o tamanho da fonte da explicação */
+            line-height: 1.7; /* Aumentei a altura da linha */
+        }
+
+        .steps {
+            list-style-type: decimal-leading-zero;
+            padding-left: 25px;
+            color: #555;
+            font-size: 1.15em; /* Aumentei o tamanho da fonte dos passos */
+            line-height: 1.7; /* Aumentei a altura da linha */
+        }
+
+        .steps li {
+            margin-bottom: 12px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 1.1em; /* Aumentei o tamanho da fonte da label */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: calc(100% - 16px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1.1em; /* Aumentei o tamanho da fonte dos inputs */
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 24px; /* Aumentei o padding do botão */
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em; /* Aumentei o tamanho da fonte do botão */
+            display: block;
+            width: 300px; /* Aumentei a largura do botão */
+            margin: 30px auto; /* Aumentei a margem */
+        }
+
+        button:hover,
+        button:focus {
+            background-color: #0056b3;
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0; /* Aumentei o padding */
+            background-color: #FFFF00; /* Tom de amarelo com melhor contraste */
+            color: #333;
+            margin-top: 30px;
+            font-size: 1.1em; /* Aumentei o tamanho da fonte do footer */
+        }
+
+        footer a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        footer a:hover,
+        footer a:focus {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Convenience</h1>
+        <p class="subtitle">Implantamos seu mercado a custo ZERO!</p>
+    </header>
+
+    <button onclick="window.location.href='index.html'">Voltar à Página Principal</button>
+
+    <main>
+        <section id="sobre-nos">
+            <h2 tabindex="0">Sobre Nós</h2>
+            <p class="answer">Nossa empresa oferece uma solução inovadora para condomínios: minimercados autônomos implantados sem custo algum. Nosso modelo de negócio, diferente de franquias, permite oferecer preços mais competitivos aos moradores, aumentando a conveniência e a satisfação.</p>
+            <p class="answer">Acreditamos em soluções práticas e acessíveis para o dia a dia, e o Convenience é a resposta para as necessidades de compras rápidas e convenientes dentro do seu próprio condomínio.</p>
+        </section>
+
+        <section id="como-funciona">
+            <h2 tabindex="0">Como Funciona</h2>
+            <article class="how-it-works">
+                <span class="question-mark">?</span>
+                <p class="explanation">O Minimercado do seu condomínio funciona 24 horas por dia, de maneira totalmente autônoma. Oferecemos uma variedade de itens essenciais para o dia a dia, além de opções deliciosas para aqueles momentos de desejo, seja durante o dia ou à noite.</p>
+            </article>
+        </section>
+
+        <section id="simples-rapido">
+            <h3 tabindex="0">Simples e Rápido</h3>
+            <ol class="steps">
+                <li>O consumidor escolhe os produtos desejados.</li>
+                <li>Utiliza a leitora de código de barras no caixa autônomo.</li>
+                <li>Confere o resumo da compra e os valores apresentados na tela.</li>
+                <li>Realiza o pagamento de forma segura, selecionando a opção desejada: Crédito, Débito ou Pix.</li>
+            </ol>
+        </section>
+
+        <section id="contato">
+            <h2 tabindex="0">Contato</h2>
+            <p class="answer">Entre em contato conosco para saber mais sobre como podemos levar o Convenience para o seu condomínio!</p>
+            <form aria-label="Formulário de contato">
+                <div>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" rows="5"></textarea>
+                </div>
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Convenience_Store_SBO. Todos os direitos reservados.</p>
+        <p><a href="/politica-de-privacidade">Política de Privacidade</a></p>
+        <p><a href="/termos-de-uso">Termos de Uso</a></p>
+    </footer>
+</body>
+</html>

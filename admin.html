@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel Admin IoT - Convenience Store SBO</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .painel-iot { background: white; padding: 25px; border-radius: 8px; margin-top: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .grid-sensores { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 25px; }
+        .sensor-card { flex: 1; min-width: 150px; border: 1px solid #eee; padding: 15px; border-radius: 5px; text-align: center; }
+        .valor { font-size: 1.8em; font-weight: bold; color: #007bff; display: block; }
+        
+        /* Layout para os dois gráficos lado a lado */
+        .grid-graficos { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+        .grafico-container { flex: 1; min-width: 300px; background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
+        
+        header .btn-voltar { float: left; text-decoration: none; color: #333; font-weight: bold; padding: 8px 15px; background: #fff; border-radius: 5px; border: 1px solid #333; }
+    </style>
+</head>
+<body>
+    <header style="background-color: #FFFF00; padding: 20px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <a href="index.html" class="btn-voltar">← Loja</a>
+        <h1 style="margin: 0;">Monitoramento de Hardware</h1>
+    </header>
+
+    <div class="container">
+        <div class="painel-iot">
+            <h2 style="color: #333; border-bottom: 2px solid #FFFF00; padding-bottom: 10px; margin-bottom: 20px;">Dados em Tempo Real (ESP32)</h2>
+            
+            <div class="grid-sensores">
+                <div class="sensor-card"><span>Temperatura</span><span id="temp" class="valor">--°C</span></div>
+                <div class="sensor-card"><span>Umidade</span><span id="umid" class="valor">--%</span></div>
+                <div class="sensor-card"><span>Clientes no Local</span><span id="pessoas" class="valor">0</span></div>
+            </div>
+
+            <div class="grid-graficos">
+                <div class="grafico-container">
+                    <h5 style="text-align: center;">Histórico de Temperatura</h5>
+                    <canvas id="chartTemp"></canvas>
+                </div>
+                <div class="grafico-container">
+                    <h5 style="text-align: center;">Fluxo de Clientes</h5>
+                    <canvas id="chartPessoas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let contPessoas = 0;
+
+        // Configuração Gráfico 1: Temperatura
+        const ctxTemp = document.getElementById('chartTemp').getContext('2d');
+        const chartTemp = new Chart(ctxTemp, {
+            type: 'line',
+            data: { labels: [], datasets: [{ label: 'Temp °C', borderColor: '#dc3545', data: [], fill: true, backgroundColor: 'rgba(220, 53, 69, 0.1)' }] },
+            options: { responsive: true }
+        });
+
+        // Configuração Gráfico 2: Pessoas
+        const ctxPessoas = document.getElementById('chartPessoas').getContext('2d');
+        const chartPessoas = new Chart(ctxPessoas, {
+            type: 'bar',
+            data: { labels: [], datasets: [{ label: 'Nº Clientes', backgroundColor: '#007bff', data: [] }] },
+            options: { responsive: true, scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } } }
+        });
+
+        setInterval(() => {
+            // Simulação de dados
+            const t = (Math.random() * 4 + 21).toFixed(1);
+            const u = (Math.random() * 10 + 45).toFixed(0);
+            
+            // Simula entrada e saída de clientes
+            if (Math.random() > 0.6) {
+                const mov = Math.random() > 0.5 ? 1 : -1;
+                contPessoas = Math.max(0, contPessoas + mov);
+            }
+
+            // Atualiza os cards
+            document.getElementById('temp').innerText = t + "°C";
+            document.getElementById('umid').innerText = u + "%";
+            document.getElementById('pessoas').innerText = contPessoas;
+            
+            const hora = new Date().toLocaleTimeString().slice(0, 8);
+
+            // Atualiza Gráfico de Temperatura
+            chartTemp.data.labels.push(hora);
+            chartTemp.data.datasets[0].data.push(t);
+            
+            // Atualiza Gráfico de Pessoas
+            chartPessoas.data.labels.push(hora);
+            chartPessoas.data.datasets[0].data.push(contPessoas);
+
+            // Mantém os últimos 8 registros para não poluir a tela
+            if(chartTemp.data.labels.length > 8) {
+                chartTemp.data.labels.shift(); chartTemp.data.datasets[0].data.shift();
+                chartPessoas.data.labels.shift(); chartPessoas.data.datasets[0].data.shift();
+            }
+            
+            chartTemp.update();
+            chartPessoas.update();
+        }, 3000);
+    </script>
+</body>
+</html>

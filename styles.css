@@ -1,0 +1,195 @@
+/* styles.css */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: auto;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #FFFF00;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+}
+
+#menu-toggle {
+    display: none;
+    font-size: 18px; /* Ícone do menu diminuído */
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.menu-flutuante {
+    position: static;
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: auto;
+}
+
+.menu-flutuante ul {
+    list-style: none;
+    padding: auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.menu-flutuante li {
+    margin-right: 15px;
+}
+
+.menu-flutuante li:last-child {
+    margin-right: 0;
+}
+
+.menu-flutuante a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.menu-flutuante a:hover {
+    color: #007bff;
+}
+
+main {
+    padding-top: 20px;
+}
+
+section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.produto {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.produto img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.produto p {
+    margin-bottom: 10px;
+}
+
+.produto button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.produto button:hover {
+    background-color: #218838;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #FFFF00;
+    color: #333;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: #333;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para telas menores */
+@media (max-width: 768px) {
+    .menu-flutuante {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 10px;
+        box-shadow: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    .menu-flutuante ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        justify-content: center;
+    }
+
+    .menu-flutuante li {
+        margin: 10px 0;
+    }
+
+    #menu-toggle {
+        display: block;
+        font-size: 18px; /* Ícone do menu diminuído também no modo mobile */
+    }
+
+    main {
+        padding-top: 120px;
+    }
+}

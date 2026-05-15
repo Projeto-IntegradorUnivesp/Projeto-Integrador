@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Convenience Store SBO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            font-family: sans-serif;
+        }
+        .login-card {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .btn-login { background: #1a2a6c; color: white; border: none; }
+        .btn-login:hover { background: #b21f1f; color: white; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h3 class="mb-4">Convenience Store SBO</h3>
+        <p class="text-muted">Faça login para continuar</p>
+        <form id="loginForm">
+            <div class="mb-3 text-start">
+                <label class="form-label">Usuário</label>
+                <input type="text" id="usuario" class="form-control" placeholder="admin ou cliente" required>
+            </div>
+            <div class="mb-4 text-start">
+                <label class="form-label">Senha</label>
+                <input type="password" id="senha" class="form-control" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn btn-login w-100 py-2">Entrar</button>
+        </form>
+        <div id="msg-erro" class="text-danger mt-3" style="display: none;">Credenciais inválidas!</div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('usuario').value;
+            const pass = document.getElementById('senha').value;
+            
+            if (user === 'admin' && pass === 'admin123') {
+                window.location.href = 'admin.html';
+            } else if (user === 'cliente' && pass === '123') {
+                window.location.href = 'index.html';
+            } else {
+                document.getElementById('msg-erro').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

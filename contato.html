@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoatendimento - Seu Mercadinho</title>
+    <style>
+        /* Estilos gerais (mantendo os existentes) */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-size: 18px;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column; /* Alterando para column para o header e footer ficarem no topo e rodapé */
+            align-items: center;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 95%;
+            width: 800px;
+            margin: 20px 0; /* Ajustando a margem para o container */
+            overflow-y: auto;
+            max-height: 80vh; /* Reduzindo a altura máxima para o footer aparecer */
+        }
+
+        /* Estilos do cabeçalho */
+        header {
+            background-color: #FFFF00; /* Cor amarela */
+            color: #333;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        /* Estilos do rodapé */
+        footer {
+            background-color: #FFFF00; /* Cor amarela */
+            color: #333;
+            padding: 15px 0;
+            text-align: center;
+            width: 100%;
+            margin-top: auto; /* Empurra o footer para a parte inferior */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Estilos existentes para main, contact-info, botão, etc. (mantendo os seus) */
+        main h2 {
+            color: #333;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 0.9em;
+            margin-top: 2.0em;
+            font-size: 2.2em;
+        }
+
+        main h2:first-child {
+            margin-top: 0;
+        }
+
+        main p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5em;
+            font-size: 1.2em;
+        }
+
+        .contact-info {
+            margin-top: 2.5em;
+            padding-top: 2.0em;
+            border-top: 1px solid #eee;
+            margin-bottom: 2.0em;
+        }
+
+        .contact-info h2 {
+            color: #333;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 0.9em;
+            margin-top: 2.0em;
+            font-size: 2.2em;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.8em;
+            font-size: 1.2em;
+        }
+
+        .voltar-menu-principal {
+            background-color: #007bff;
+            color: white;
+            padding: 1em 2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            margin-top: 1.5em;
+        }
+
+        .voltar-menu-principal:hover {
+            background-color: #0056b3;
+        }
+
+        /* Melhorias de acessibilidade */
+        a:focus,
+        button:focus,
+        input:focus,
+        textarea:focus,
+        .voltar-menu-principal:focus {
+            outline: 2px solid #007bff;
+            outline-offset: 2px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            html, body {
+                font-size: 17px;
+            }
+
+            .container {
+                padding: 20px;
+                width: 98%;
+                margin: 15px 0;
+                max-height: 85vh;
+            }
+
+            header {
+                padding: 15px 0;
+            }
+
+            header h1 {
+                font-size: 2.0em;
+            }
+
+            footer {
+                padding: 10px 0;
+                font-size: 0.8em;
+            }
+
+            main h2,
+            .contact-info h2 {
+                font-size: 2.0em;
+                margin-top: 1.5em;
+                padding-bottom: 0.7em;
+            }
+
+            main p,
+            .contact-info p {
+                font-size: 1.1em;
+                margin-bottom: 1.2em;
+                line-height: 1.7;
+            }
+
+            .voltar-menu-principal {
+                padding: 0.8em 1.6em;
+                font-size: 1.1em;
+                margin-top: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html, body {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 15px;
+                width: 100%;
+                border-radius: 8px;
+                margin: 10px 0;
+                max-height: 90vh;
+            }
+
+            header {
+                padding: 10px 0;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            footer {
+                padding: 8px 0;
+                font-size: 0.7em;
+            }
+
+            main h2,
+            .contact-info h2 {
+                font-size: 1.8em;
+                margin-top: 1.2em;
+                padding-bottom: 0.6em;
+            }
+
+            main p,
+            .contact-info p {
+                font-size: 1.0em;
+                line-height: 1.6;
+                margin-bottom: 1.0em;
+            }
+
+            .voltar-menu-principal {
+                padding: 0.7em 1.4em;
+                font-size: 1.0em;
+                margin-top: 1.0em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Convenience</h1>
+    </header>
+
+    <div class="container">
+        <main>
+            <h2 tabindex="0">Autoatendimento</h2>
+            <p>Nós acreditamos nas relações humanas e confiamos em nossos clientes. <span aria-label="Aqui você fica à vontade!">Aqui você fica à vontade!</span></p>
+            <p>Proporcionamos a experiência da autonomia do autoatendimento onde você compra o que quiser e no tempo que quiser. O pagamento é simples, auto intuitivo e se acaso tiver algum probleminha, nosso suporte irá auxiliar à distância.</p>
+
+            <h2 tabindex="0">Furto e Segurança</h2>
+            <p>Nossa loja possui câmeras de monitoramento 24 horas por dia. Para o síndico e condomínio não há nenhuma responsabilidade sobre essa questão, isentos totalmente pelo contrato.</p>
+            <p>Trabalhamos com ambientes controlados e com isso conseguimos identificar mais facilmente possíveis casos e tratar pontualmente.</p>
+
+            <h2 tabindex="0">Valorização</h2>
+            <p>Por ser uma novidade no setor imobiliário, a informação é conhecida por poucas pessoas. Então venho compartilhar boas notícias! A presença do mercadinho no seu condomínio valoriza entre 6% e 8% o valor do seu imóvel.</p>
+        </main>
+
+        <div class="contact-info">
+            <h2 tabindex="0">Contato</h2>
+            <p><span aria-label="Telefone">📞</span> (19) 99260-0107 - Henrique</p>
+            <p><span aria-label="Email">✉️</span> <a href="mailto:dminimercado2024@gmail.com">dminimercado2024@gmail.com</a></p>
+        </div>
+
+        <button class="voltar-menu-principal" onclick="window.location.href='index.html'">Voltar ao Menu Principal</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Convenience_Store_SBO. Todos os direitos reservados.</p>
+        <p><a href="/politica-de-privacidade">Política de Privacidade</a> | <a href="/termos-de-uso">Termos de Uso</a></p>
+    </footer>
+</body>
+</html>
