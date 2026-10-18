@@ -27,6 +27,10 @@
         .opcoes-pagamento button { background-color: #28a745; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 1em; margin-right: 10px; }
         .opcoes-pagamento button:hover { background-color: #1e7e34; }
         .oculto { display: none; }
+         footer {
+                padding: 8px 0;
+                font-size: 0.7em;
+            }
     </style>
 </head>
 <body style="background-image: url('logo.jpg'); background-repeat: no-repeat; background-size: auto; background-position: center top;">
@@ -71,12 +75,13 @@
                     </div>
                     <div class="produto" data-id="4" data-nome="Café União Tradicional" data-preco="9.00">
                         <img src="cafe-uniao-tradicional-500g" alt="Café">
+                        <p>R$ 35,00</p>
                         <p>Café União Tradicional 500g</p>
                         <button onclick="adicionarAoCarrinho(this)">Adicionar ao Carrinho</button>
                     </div>
                     <div class="produto" data-id="5" data-nome="Açúcar Demerara União Naturalle" data-preco="8.65">
                         <img src="acucar-refinado-caravelas-1kg" alt="Açúcar">
-                        <p>R$ 8,65 - Açúcar Demerara União Naturalle 1kg</p>
+                        <p>R$ 10,00 - Açúcar Demerara União Naturalle 1kg</p>
                         <button onclick="adicionarAoCarrinho(this)">Adicionar ao Carrinho</button>
                     </div>
                     <div class="produto" data-id="6" data-nome="Sal Refinado Cisne" data-preco="2.50">
@@ -109,10 +114,9 @@
         </main>
 
         <footer>
-            <p>&copy; 2026 Convenience_Store_SBO. Todos os direitos reservados.</p>
-            <p>Contato: <a href="mailto:dminimercado2024@gmail.com">dminimercado2024@gmail.com</a></p>
-        </footer>
-    </div>
+        <p>&copy; 2026 Convenience_Store_SBO. Todos os direitos reservados.</p>
+        <p><a href="/politica-de-privacidade">Política de Privacidade</a> | <a href="/termos-de-uso">Termos de Uso</a></p>
+    </footer>
 
     <script>
         // Lógica original do carrinho
